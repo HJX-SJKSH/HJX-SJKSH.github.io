@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="echarts.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="height:700px;background-color:  rgb(171, 205, 213);margin-top: 0%;"></div>
+    <script>
+        var myCharts = echarts.init(document.querySelector('div'))
+        var option = {
+  title: {
+    text: '近几年车辆拥有量',
+    textStyle:{
+      color:'white'
+    },
+  },
+  backgroundColor:'#2c363f',
+  tooltip: {
+    trigger: 'axis',
+    axisPointer: {
+      type: 'cross',
+      label: {
+        backgroundColor: '#6a7985'
+      }
+    }
+  },
+ legend: {
+  textStyle:{
+      color:'white'
+    },
+    data: ['摩托车', '私人汽车', '电动自行车' ]
+  },
+  toolbox: {
+    feature: {
+      saveAsImage: {}
+    }
+  },
+  grid: {
+    left: '3%',
+    right: '4%',
+    bottom: '3%',
+    containLabel: true
+  },
+  xAxis: [
+    {
+      name:'年份',
+      type: 'category',
+      boundaryGap: false,
+      data: ['2014', '2016', '2018', '2020', ]
+    }
+  ],
+  yAxis: [
+    {
+      name:'数量（万辆）',
+      type: 'value'
+    }
+  ],
+  series: [
+    {
+      smooth: true,
+      name: '电动自行车',
+      lineStyle:{
+       color:'white',
+       width:10,
+    },
+      type: 'line',
+      areaStyle: {
+        color:'#40506A',
+      },
+      emphasis: {
+        focus: 'series'
+      },
+      data: [130, 442, 457, 465]
+    },
+    
+    {
+      smooth: true,
+      name: '私人汽车',
+      type: 'line',
+      lineStyle:{
+       color:'#5BA6CC',
+       width:10,
+    },
+      
+      areaStyle: {
+        color:'#2E3F58',
+      },
+      emphasis: {
+        focus: 'series'
+      },
+      data: [277, 369, 420, 460]
+    },
+    {smooth: true,
+      name: '摩托车',
+      lineStyle:{
+        color:'#ed9107',
+       width:10,
+    },
+      type: 'line',
+      
+      areaStyle: {
+        color:'#2A313B',
+      },
+      emphasis: {
+        focus: 'series'
+      },
+      data: [71, 51, 56, 55]
+    },
+  ]
+};
+        myCharts.setOption(option)
+    </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="echarts.min.js"></script>
+    <script src="purple-passion.js"></script>
+    
+</head>
+<body>
+    <div style="height: 600px;background-color:  rgba(209, 220, 237, 0.751);margin-top: 5%;"></div>
+    <script>
+        var myCharts = echarts.init(document.querySelector('div'),'purple-passion')
+        
+        var option = {
+  title:{
+    text:'中国八大菜系市场占比',
+                left:'center',
+                
+                textStyle:{
+                    color:'white',
+                    fontSize:'30'
+                }
+            },
+  tooltip: {
+    trigger: 'item'
+  },
+  legend: {
+    top: '5%',
+    left: 'center'
+  },
+  series: [
+    {
+      name: 'Access From',
+      type: 'pie',
+      radius: ['40%', '70%'],
+      avoidLabelOverlap: false,
+      itemStyle: {
+        borderRadius: 10,
+        borderColor: '#fff',
+        borderWidth: 2
+      },
+      label: {
+        show: false,
+        position: 'center'
+      },
+      emphasis: {
+        label: {
+          show: true,
+          fontSize: 40,
+          fontWeight: 'bold'
+        }
+      },
+      labelLine: {
+        show: true
+      },
+      data: [
+        { value: 30, name: '川菜' },
+        { value: 20, name: '粤菜' },
+        { value: 15, name: '苏菜' },
+        { value: 13, name: '鲁菜' },
+        { value: 12, name: '湘菜' },
+        { value: 5, name: '徽菜' },
+        { value: 4, name: '浙菜' },
+        { value: 1, name: '闽菜' }
+      ]
+    }
+  ]
+};
+        myCharts.setOption(option)
+    </script>
+</body>
+</html>
